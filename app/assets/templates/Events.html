@@ -1,8 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
+      <h4>Search Events</h4>
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <input ng-model="query" type="text" class="form-control" id="event-name" placeholder="Search">
+        </div>
+      </form>
       <h4>Events</h4>
-        <div class="panel panel-default" ng-repeat="event in events">
+        <div class="panel panel-default" ng-repeat="event in events | filter:query">
           <div class="panel-heading">
             <h3 class="panel-title">
               {{event.name}}
