@@ -1,8 +1,12 @@
 class VolunteersController < ApplicationController
-  before_filter :authorize, only: [:index, :destroy]
+  # before_filter :authorize, only: [:index, :destroy]
 
   def index
     @volunteers = Volunteer.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @volunteers }
+    end
   end
 
   def new
@@ -13,25 +17,45 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(volunteer_params)
     if @volunteer.save
       @volunteer.event_ids = params[:volunteer][:event_ids]
-      flash[:notice] = "Successfully registered."
-      redirect_to volunteer_path(@volunteer)
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Successfully registered."
+          redirect_to volunteer_path(@volunteer)
+        end
+        format.json { render :json => @volunteer, :status => 201 }
+      end
     else
-      render 'new'
+      respond_to do |format|
+        format.html { render 'new' }
+        format.json { render :json => @volunteer.errors, :status => 422 }
+      end
     end
   end
 
   def show
     @volunteer = Volunteer.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json { render :json => @volunteer }
+    end
   end
 
   def update
     @volunteer = Volunteer.find(params[:id])
     if @volunteer.update(volunteer_params)
       @volunteer.event_ids = params[:volunteer][:event_ids]
-      flash[:notice] = "Successfully updated."
-      redirect_to volunteer_path(@volunteer)
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Successfully updated."
+          redirect_to volunteer_path(@volunteer)
+        end
+        format.json { head :no_content }
+      end
     else
-      render 'show'
+      respond_to do |format|
+        format.html { render 'show' }
+        format.json { render :json => @volunteer.errors, :status => 422 }
+      end
     end
   end
 
@@ -39,7 +63,13 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
     @volunteer.events.destroy_all
     @volunteer.destroy
-    redirect_to volunteers_path
+    respond_to do |format|
+      format.html do
+        flash[:notice] = "Volunteer deleted."
+        redirect_to volunteers_path
+      end
+      format.json { head :no_content }
+    end
   end
 
 private

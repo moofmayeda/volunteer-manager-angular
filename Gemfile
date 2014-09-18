@@ -11,6 +11,8 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'bcrypt'
 gem 'rest-client'
+gem 'active_model_serializers'
+
 
 group :development do
   gem 'better_errors'
