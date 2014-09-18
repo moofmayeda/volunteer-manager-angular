@@ -22,7 +22,7 @@
       <button ng-click="new_event = true" ng-hide="new_event" class="btn btn-danger">
         Make a new event
       </button>
-      <span class="form-group" ng-show="new_event" ng-submit="new_event = false">
+      <span class="form-group" ng-show="new_event" ng-submit="submit()">
         <form class="form-inline" role="form">
           <input type="text" class="form-control input-sm" ng-model="event.name" placeholder="Name" required/>
           <input type="text" class="form-control input-sm" ng-model="event.date" placeholder="Date" required/>
