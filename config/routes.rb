@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'events#index'
+  root :to => "application#index"
 
   resources :events, except: :edit
   resources :organizers, only: [:new, :create]

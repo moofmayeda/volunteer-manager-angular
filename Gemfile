@@ -6,12 +6,12 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'bcrypt'
 gem 'rest-client'
 gem 'active_model_serializers'
+gem 'angular-rails-templates'
 
 
 group :development do
