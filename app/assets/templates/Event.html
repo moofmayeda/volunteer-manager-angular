@@ -1,4 +1,11 @@
 <div class="page-header">
-  <h1>{{event.name}}<small>{{event.location}} {{event.date}}</small></h1>
+  <h1>{{event.name}}<small> {{event.location}} {{event.date}}</small></h1>
 </div>
 
+<button ng-click="editing = true" ng-hide="editing" class="btn btn-warning">Edit event</button>
+<form ng-submit="submit()" role="form" ng-show="editing" class="form-inline">
+  <input type="text" class="form-control input-sm" ng-model="editedEvent.name" placeholder="Name" required/>
+    <input type="text" class="form-control input-sm" ng-model="editedEvent.date" placeholder="Date" required/>
+    <input type="text" class="form-control input-sm" ng-model="editedEvent.location" placeholder="location" required/>
+    <button class="btn btn-primary btn-sm" type="submit">Update</button>
+</form>

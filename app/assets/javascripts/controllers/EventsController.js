@@ -10,16 +10,6 @@ volunteerManager.controller('EventsController', function EventsController($scope
       })
   })();
 
-
-  $scope.showEvent = (function() {
-    EventsFactory.showEvent($routeParams.id)
-    .success(function(data) {
-      $scope.event = data.event;
-    })
-  })();
-  // $scope.event = $scope.events.filter(function(event){ return event.id === $routeParams.id; });
-  // console.log($scope.event);
-
   $scope.submit = function() {
     $scope.addEvent();
     $scope.new_event = false
