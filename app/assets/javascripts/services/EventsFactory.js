@@ -8,7 +8,9 @@ volunteerManager.factory('EventsFactory', function EventsFactory($http) {
     return $http.get('/events.json')
   };
 
-  // factory.getEvents();
+  factory.addEvent = function (name, date, location) {
+    return $http.post('/events', {name: name, date: date, location: location })
+  }
 
   return factory;
 })
