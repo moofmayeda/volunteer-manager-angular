@@ -12,4 +12,9 @@ volunteerManager.config(function ($routeProvider) {
     controller: 'EventsController',
     templateUrl: 'Events.html'
   })
+  .when ('/events/:id',
+  {
+    controller: 'EventController',
+    templateUrl: 'Event.html'
+  })
 });

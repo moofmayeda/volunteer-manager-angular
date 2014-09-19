@@ -11,7 +11,7 @@
         <div class="panel panel-default" ng-repeat="event in events | filter:query">
           <div class="panel-heading">
             <h3 class="panel-title">
-              {{event.name}}
+              <a ng-href="#/events/{{event.id}}">{{event.name}}</a>
             </h3>
           </div>
           <div class="panel-body">
@@ -24,9 +24,9 @@
       </button>
       <span class="form-group" ng-show="new_event" ng-submit="submit()">
         <form class="form-inline" role="form">
-          <input type="text" class="form-control input-sm" ng-model="event.name" placeholder="Name" required/>
-          <input type="text" class="form-control input-sm" ng-model="event.date" placeholder="Date" required/>
-          <input type="text" class="form-control input-sm" ng-model="event.location" placeholder="location" required/>
+          <input type="text" class="form-control input-sm" ng-model="newEvent.name" placeholder="Name" required/>
+          <input type="text" class="form-control input-sm" ng-model="newEvent.date" placeholder="Date" required/>
+          <input type="text" class="form-control input-sm" ng-model="newEvent.location" placeholder="location" required/>
           <button class="btn btn-primary btn-sm" type="submit">Save</button>
         </form>
       </span>

@@ -1,6 +1,7 @@
-volunteerManager.controller('EventsController', function EventsController($scope, EventsFactory) {
+volunteerManager.controller('EventsController', function EventsController($scope, EventsFactory, $routeParams) {
   $scope.EventsFactory = EventsFactory;
   $scope.events = EventsFactory.events;
+  $scope.newEvent = {};
 
   $scope.getEvents = (function() {
     EventsFactory.getEvents()
@@ -9,18 +10,26 @@ volunteerManager.controller('EventsController', function EventsController($scope
       })
   })();
 
+
+  $scope.showEvent = (function() {
+    EventsFactory.showEvent($routeParams.id)
+    .success(function(data) {
+      $scope.event = data.event;
+    })
+  })();
+  // $scope.event = $scope.events.filter(function(event){ return event.id === $routeParams.id; });
+  // console.log($scope.event);
+
   $scope.submit = function() {
     $scope.addEvent();
     $scope.new_event = false
   }
 
   $scope.addEvent = function() {
-    var name = $scope.event.name;
-    var date = $scope.event.date;
-    var location = $scope.event.location;
-    EventsFactory.addEvent(name, date, location)
+    EventsFactory.addEvent($scope.newEvent)
       .success(function(data) {
-        $scope.events.push({name: name, date: date, location: location})
+        $scope.events.push($scope.newEvent);
+        $scope.newEvent = null;
       })
       .error(function() {
         console.log(data);
