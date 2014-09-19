@@ -1,4 +1,5 @@
   volunteerManager.controller('EventController', function EventController($scope, EventsFactory, $routeParams) {
+  $scope.EventsFactory = EventsFactory;
   $scope.editedEvent = {};
   $scope.event = {};
 
