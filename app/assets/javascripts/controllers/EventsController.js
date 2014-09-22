@@ -18,6 +18,7 @@ volunteerManager.controller('EventsController', function EventsController($scope
   $scope.addEvent = function() {
     EventsFactory.addEvent($scope.newEvent)
       .success(function(data) {
+        $scope.newEvent.id = data.event.id;
         $scope.events.push($scope.newEvent);
         $scope.newEvent = null;
       })
