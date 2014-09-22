@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h1>{{volunteer.name}}<small> {{volunteer.email}} {{volunteer.phone}}</small></h1>
+</div>
+
+<button ng-click="editing = true" ng-hide="editing" class="btn btn-warning">Edit volunteer</button>
+<form ng-submit="submit()" role="form" ng-show="editing" class="form-inline">
+  <input type="text" class="form-control input-sm" ng-model="volunteer.name" placeholder="Name" required/>
+    <input type="text" class="form-control input-sm" ng-model="volunteer.phone" placeholder="phone" required/>
+    <input type="text" class="form-control input-sm" ng-model="volunteer.email" placeholder="email" required/>
+    <button class="btn btn-primary btn-sm" type="submit">Update</button>
+</form>
+
+<button ng-click="EventsFactory.deleteEvent(volunteer)" class="btn btn-danger">Delete</button>

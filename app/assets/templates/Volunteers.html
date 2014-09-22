@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h4>Search Volunteers</h4>
+      <form class="form-inline" role="form">
+        <div class="form-group">
+          <input ng-model="query" type="text" class="form-control" id="volunteer-name" placeholder="Search">
+        </div>
+      </form>
+      <h4>Volunteers</h4>
+        <div class="panel panel-default" ng-repeat="volunteer in volunteers | filter:query">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <a ui-sref="volunteers.detail({ id: volunteer.id })">{{volunteer.name}}</a>
+            </h3>
+          </div>
+          <div class="panel-body">
+           <p>Date: {{volunteer.phone}}</p>
+           <p>Location: {{volunteer.email}}</p>
+          </div>
+        </div>
+      <button ng-click="new_volunteer = true" ng-hide="new_volunteer" class="btn btn-danger">
+        Make a new volunteer
+      </button>
+      <span class="form-group" ng-show="new_volunteer" ng-submit="submit()">
+        <form class="form-inline" role="form">
+          <input type="text" class="form-control input-sm" ng-model="newVolunteer.name" placeholder="Name" required/>
+          <input type="text" class="form-control input-sm" ng-model="newVolunteer.phone" placeholder="Phone" required/>
+          <input type="text" class="form-control input-sm" ng-model="newVolunteer.email" placeholder="email" required/>
+          <button class="btn btn-primary btn-sm" type="submit">Save</button>
+        </form>
+      </span>
+    </div>
+    <div ui-view class="col-md-8">
+    </div>
+  </div>
+</div>

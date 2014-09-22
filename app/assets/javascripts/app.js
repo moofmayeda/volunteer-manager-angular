@@ -15,4 +15,16 @@ volunteerManager.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: "Events.html",
       controller: "EventsController"
      })
+
+     .state('volunteers', {
+      url: "/volunteers",
+      templateUrl: "Volunteers.html",
+      controller: "VolunteersController"
+     })
+
+     .state('volunteers.detail', {
+      url: "/:id",
+      templateUrl: "Volunteers.detail.html",
+      controller: "VolunteerController"
+     })
 });
