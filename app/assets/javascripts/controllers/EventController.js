@@ -1,6 +1,5 @@
   volunteerManager.controller('EventController', function EventController($scope, EventsFactory, $stateParams) {
   $scope.EventsFactory = EventsFactory;
-  $scope.editedEvent = {};
   $scope.event = {};
 
   $scope.showEvent = (function() {
@@ -12,14 +11,13 @@
 
   $scope.submit = function() {
     $scope.editing = false;
-    $scope.editedEvent.id = $stateParams.id;
+    $scope.event.id = $stateParams.id;
     $scope.updateEvent();
   };
 
   $scope.updateEvent = function() {
-    EventsFactory.updateEvent($scope.editedEvent)
+    EventsFactory.updateEvent($scope.event)
       .success(function(data) {
-        $scope.event = $scope.editedEvent;
       })
   };
 

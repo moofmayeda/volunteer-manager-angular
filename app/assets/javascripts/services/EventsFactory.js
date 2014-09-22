@@ -1,6 +1,5 @@
 volunteerManager.factory('EventsFactory', function EventsFactory($http, $location) {
   var factory = {};
-
   factory.events = [];
   factory.getEvents = function () {
     return $http.get('/events.json')

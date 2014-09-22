@@ -1,7 +1,7 @@
 volunteerManager.controller('EventsController', function EventsController($scope, EventsFactory) {
   $scope.EventsFactory = EventsFactory;
   $scope.events = EventsFactory.events;
-  $scope.newEvent = {};
+  $scope.newEvent = {}
 
   $scope.getEvents = (function() {
     EventsFactory.getEvents()
@@ -23,8 +23,6 @@ volunteerManager.controller('EventsController', function EventsController($scope
         $scope.newEvent = null;
       })
       .error(function() {
-        console.log(data);
       })
   };
-
 });
