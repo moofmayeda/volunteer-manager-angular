@@ -27,26 +27,15 @@ volunteerManager.config(function ($stateProvider, $urlRouterProvider) {
        }
      })
 
+     .state('events.detail', {
+      url: "/events/:id",
+      templateUrl: "Events.detail.html",
+      controller: "EventController"
+     })
+
      .state('events', {
       url: "/events",
       templateUrl: "Events.html",
       controller: "EventsController"
      })
-  //add in $routeProvier to use below:
-  // $routeProvider
-  // .when('/volunteers',
-  // {
-  //   controller: 'VolunteersController',
-  //   templateUrl: 'templates/Volunteers.html'
-  // })
-  // .when('/',
-  // {
-  //   controller: 'EventsController',
-  //   templateUrl: 'Events.html'
-  // })
-  // .when ('/events/:id',
-  // {
-  //   controller: 'EventController',
-  //   templateUrl: 'Event.html'
-  // })
 });

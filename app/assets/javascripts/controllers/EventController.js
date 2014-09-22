@@ -2,6 +2,7 @@
   $scope.EventsFactory = EventsFactory;
   $scope.editedEvent = {};
   $scope.event = {};
+  console.log($stateParams.id);
 
   $scope.showEvent = (function() {
     EventsFactory.showEvent($stateParams.id)
