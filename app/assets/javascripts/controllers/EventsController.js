@@ -1,4 +1,4 @@
-volunteerManager.controller('EventsController', function EventsController($scope, EventsFactory, $routeParams) {
+volunteerManager.controller('EventsController', function EventsController($scope, EventsFactory) {
   $scope.EventsFactory = EventsFactory;
   $scope.events = EventsFactory.events;
   $scope.newEvent = {};

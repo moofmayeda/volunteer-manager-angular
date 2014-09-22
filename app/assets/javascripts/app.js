@@ -26,6 +26,12 @@ volunteerManager.config(function ($stateProvider, $urlRouterProvider) {
          $scope.things = ["A", "Set", "Of", "Things"];
        }
      })
+
+     .state('events', {
+      url: "/events",
+      templateUrl: "Events.html",
+      controller: "EventsController"
+     })
   //add in $routeProvier to use below:
   // $routeProvider
   // .when('/volunteers',
