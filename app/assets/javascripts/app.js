@@ -4,16 +4,22 @@ volunteerManager.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/events");
 
    $stateProvider
+      .state('events', {
+      url: "/events",
+      templateUrl: "Events.html",
+      controller: "EventsController"
+     })
+
+     .state('events.detail.volunteers', {
+      url: "/volunteers",
+      templateUrl: "Events.detail.volunteers.html",
+      controller: "EventsVolunteersController"
+     })
+
      .state('events.detail', {
       url: "/:id",
       templateUrl: "Events.detail.html",
       controller: "EventController"
-     })
-
-     .state('events', {
-      url: "/events",
-      templateUrl: "Events.html",
-      controller: "EventsController"
      })
 
      .state('volunteers', {

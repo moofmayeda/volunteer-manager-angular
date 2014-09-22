@@ -2,6 +2,9 @@
   <h1>{{event.name}}<small> {{event.location}} {{event.date}}</small></h1>
 </div>
 
+<div class="ui-view">
+</div>
+<a ui-sref="events.detail.volunteers({ id: event.id })" class="btn btn-info">Show volunteers</a>
 <button ng-click="editing = true" ng-hide="editing" class="btn btn-warning">Edit event</button>
 <form ng-submit="submit()" role="form" ng-show="editing" class="form-inline">
   <input type="text" class="form-control input-sm" ng-model="event.name" placeholder="Name" required/>

@@ -1,0 +1,23 @@
+<h4>Volunteers Signed Up</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="volunteer in volunteers | filter:query">
+      <td>{{volunteer.name}}</td>
+      <td>{{volunteer.email}}</td>
+      <td>{{volunteer.phone}}</td>
+    </tr>
+  </tbody>
+</table>
+<h6>Search Volunteers</h6>
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <input ng-model="query" type="text" class="form-control" id="volunteer-name" placeholder="Search">
+  </div>
+</form>

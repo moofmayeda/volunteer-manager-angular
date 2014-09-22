@@ -1,10 +1,12 @@
-volunteerManager.controller('EventsController', function EventsController($scope, EventsFactory) {
+volunteerManager.controller('EventsController', function EventsController($scope, VolunteersFactory, EventsFactory) {
   $scope.EventsFactory = EventsFactory;
   $scope.newEvent = {}
 
   EventsFactory.getEvents().success(function(data) {
     $scope.events = EventsFactory.events;
   });
+
+  VolunteersFactory.getVolunteers();
 
   $scope.submit = function() {
     $scope.addEvent();
