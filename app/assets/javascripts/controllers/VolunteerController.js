@@ -21,6 +21,7 @@
   $scope.updateVolunteer = function() {
     VolunteersFactory.updateVolunteer($scope.volunteer)
       .success(function(data) {
+
       })
   };
 
